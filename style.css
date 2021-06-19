@@ -88,6 +88,17 @@ button {
     z-index: 3;
 }
 
+.nav::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -30px;
+    width: 30px;
+    height: 30px;
+    background: var(--clr-white);
+    clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+}
+
 .nav__menu {
     display: flex;
     flex-direction: column;
@@ -145,6 +156,10 @@ button {
         transform: translateX(0);
         background-color: transparent;
     }
+
+    .nav::before {
+        display: none;
+    }
     
     .nav__menu {
         position: relative;
@@ -184,14 +199,25 @@ button {
     background-image: url(images/mobile/image-header.jpg);
     background-size: cover;
     background-position: center;
-    height: 80vh;
+    height: 100vh;
 }
 
 h1 {
-    margin: 5vh 2rem 0;
+    margin: 15vh 2rem 0;
     color: var(--clr-white);
     font-size: 40px;
     text-transform: uppercase;
+}
+
+.arrow {
+    display: inline-block;
+    margin-top: 3rem;
+}
+
+@media only screen and (min-width: 480px) {
+    .arrow {
+        margin-top: 7rem;
+    }
 }
 
 /* content */
@@ -206,6 +232,11 @@ h1 {
 .content__card {
     position: relative;
     overflow: hidden;
+}
+
+.content__card p,
+.content__card h2 {
+    padding: 0 2rem;
 }
 
 .card2 {
@@ -255,6 +286,10 @@ h1 {
     .hero {
         background-image: url(images/desktop/image-header.jpg);
     }
+
+    h1 {
+        margin: 15vh 2rem 0;
+    }    
 
     .content {
         grid-template-columns: repeat(2, 1fr);
